@@ -29,7 +29,7 @@ public class Electrodomestico {
 
 		this.precioBase = precioBase;
 		this.color = comprobarColor(color);
-		this.consumoEnergetico = consumoEnergetico;
+		this.consumoEnergetico = comprobarConsumoEnergetico(consumoEnergetico);
 		this.peso = peso;
 	}
 	
@@ -90,4 +90,5 @@ public class Electrodomestico {
 			return "BLANCO";
 		}	
 	}
+
 }
