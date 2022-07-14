@@ -62,12 +62,10 @@ public class Electrodomestico {
 	public String getConsumoEnergetico() {
 		return consumoEnergetico;
 	}
-	
+
 	public float getPeso() {
 		return peso;
 	}
-	
-	
 	
 	/**
 	 * 
@@ -89,6 +87,13 @@ public class Electrodomestico {
 		} else {
 			return "BLANCO";
 		}	
+	}
+
+	public float precioFinal() {
+		
+		// TO DO
+		
+		return precioBase;		
 	}
 
 }
