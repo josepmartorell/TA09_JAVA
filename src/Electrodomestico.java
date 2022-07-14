@@ -56,6 +56,24 @@ public class Electrodomestico {
         	this.consumoEnergetico = "F";
 		this.peso = peso;
 	}
+	
+	public String comprobarConsumoEnergetico(String letra) {
+		
+		String[] letras = {"A", "B", "C", "D", "E", "F"};
+		boolean contains = false;
+		
+		for (String c : letras) {
+		    if (c.equals(letra)) {
+		        contains = true;
+		        this.consumoEnergetico = letra; 
+		        break;
+		    }
+		}
+		if (!contains) {
+			this.consumoEnergetico = "F"; 
+		}
+		return letra;
+	}
 
 	public float getPrecioBase() {
 		return precioBase;
