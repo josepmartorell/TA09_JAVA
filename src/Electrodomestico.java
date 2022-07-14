@@ -1,59 +1,35 @@
-
-
 public class Electrodomestico {
+	private final float DEF_PRECIO = 100.0F;
+	private final String DEF_COLOR = "BLANCO";
+	private final String DEF_CONENERG = "F";
+	private final float DEF_PESO = 5.0F;
 	
-	private final float precioBase;
-	private String color;
-	private String consumoEnergetico;
-	private final float peso;
+	protected float precioBase;
+	protected String color;
+	protected String consumoEnergetico;
+	protected float peso;
 	
 		
 	public Electrodomestico() {
-		this.precioBase = 0.0F;
-		this.color = "BLANCO";
-		this.consumoEnergetico  = "F";
-		this.peso = 5.0F;
+		this.precioBase = DEF_PRECIO;
+		this.color = DEF_COLOR;
+		this.consumoEnergetico  = DEF_CONENERG;
+		this.peso = DEF_PESO;
 	
 	}
 	
 	public Electrodomestico(float precioBase, float peso) {
 		this.precioBase = precioBase;
-		this.color = "BLANCO";
-		this.consumoEnergetico  = "F";
+		this.color = DEF_COLOR;
+		this.consumoEnergetico  = DEF_CONENERG;
 		this.peso = peso;
 	}
 
 	public Electrodomestico(float precioBase, String color, String consumoEnergetico, float peso) {
 
 		this.precioBase = precioBase;
-		
-		// VALIDAMOS EL PARAMETRO COLOR
-		boolean check = false;
-		String checkColor = color.toUpperCase();
-		String COLORES_DISPONIBLES[] = {"BLANCO", "NEGRO", "ROJO", "AZUL", "GRIS"};
-		for(int i = 0; i<COLORES_DISPONIBLES.length; i++) {
-			if (checkColor == COLORES_DISPONIBLES[i]) {
-				check = true;
-			}		
-		}
-		if (!check)
-			this.color = checkColor; 
-		else
-			this.color = "BLANCO";
-
-		// VALIDAMOS EL PARAMETRO CONSUMO ENERGÉTICO
-		check = false;
-        String checkConsumo = consumoEnergetico.toUpperCase();
-        String CONSUMO_ENERGETICO[] = {"A", "B", "C", "D", "E", "F"};
-		for(int i = 0; i<CONSUMO_ENERGETICO.length; i++) {
-			if (checkColor == CONSUMO_ENERGETICO[i]) {
-				check = true;
-			}		
-		}
-        if(!check)
-        	this.consumoEnergetico = checkConsumo;
-        else
-        	this.consumoEnergetico = "F";
+		this.color = comprobarColor(color);
+		this.consumoEnergetico = consumoEnergetico;
 		this.peso = peso;
 	}
 	
@@ -93,7 +69,25 @@ public class Electrodomestico {
 	
 	
 	
-	
-	
-
+	/**
+	 * 
+	 * @param color
+	 * @return
+	 */
+	protected String comprobarColor(String color) {
+		// VALIDAMOS EL PARAMETRO COLOR
+		boolean check = false;
+		String checkColor = color.toUpperCase();
+		String COLORES_DISPONIBLES[] = { "BLANCO", "NEGRO", "ROJO", "AZUL", "GRIS" };
+		for (int i = 0; i < COLORES_DISPONIBLES.length; i++) {
+			if (checkColor == COLORES_DISPONIBLES[i]) {
+				check = true;
+			}
+		}
+		if (!check) {
+			return checkColor;
+		} else {
+			return "BLANCO";
+		}	
+	}
 }
