@@ -29,8 +29,26 @@ public class Electrodomestico {
 
 		this.precioBase = precioBase;
 		this.color = comprobarColor(color);
-		this.consumoEnergetico = consumoEnergetico;
+		this.consumoEnergetico = comprobarConsumoEnergetico(consumoEnergetico);
 		this.peso = peso;
+	}
+	
+	public String comprobarConsumoEnergetico(String letra) {
+		
+		String[] letras = {"A", "B", "C", "D", "E", "F"};
+		boolean contains = false;
+		
+		for (String c : letras) {
+		    if (c.equals(letra)) {
+		        contains = true;
+		        this.consumoEnergetico = letra; 
+		        break;
+		    }
+		}
+		if (!contains) {
+			this.consumoEnergetico = "F"; 
+		}
+		return letra;
 	}
 
 	public float getPrecioBase() {
@@ -72,4 +90,5 @@ public class Electrodomestico {
 			return "BLANCO";
 		}	
 	}
+
 }
