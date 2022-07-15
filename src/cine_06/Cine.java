@@ -1,21 +1,26 @@
 package cine_06;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Cine {
     private ArrayList<Butaca> butacas = new ArrayList<Butaca>();
     private Pelicula pelicula;
     private final float precioEntrada = 10F;
     private ArrayList<Espectador> espectadores = new ArrayList<Espectador>();
+    private int aforo;
 
     /**
 	 * @param butacas
 	 * @param pelicula
 	 */
-	public Cine(Pelicula pelicula) {
+	public Cine(Pelicula pelicula, boolean aforo) {
 		crearButacas();
 		this.pelicula = pelicula;
+		this.aforo = this.butacas.size();
 	}
 
 	public void crearButacas(){
@@ -30,6 +35,31 @@ public class Cine {
             }
         }
     }
+	
+	public void crearEspectadoresAleatorios(int num, Cine cine) {
+
+		final String chars = "abcdefghijklmnopqrstuvwxyz";
+
+		for (int i = 0; i < num; i++) {
+			// Edad random
+			int edad = (int) (Math.random() * (110 - 4)) + 4;
+
+			// Dinero random
+			float dinero = (float) (Math.random() * (100 - 0)) + 0;
+
+			// Nombre random
+			SecureRandom random = new SecureRandom();
+			String name = IntStream.range(0, ((int) (Math.random() * (10 - 3)) + 3))
+					.map(k -> random.nextInt(chars.length()))
+					.mapToObj(randomIndex -> String.valueOf(chars.charAt(randomIndex))).collect(Collectors.joining());
+
+			// Creamos un espectador
+			Espectador e = new Espectador(name, edad, dinero, "");
+
+			// Lo insertamos en la lista de espectadores del cine
+			this.espectadores.add(e);
+		}
+	}
 
     public ArrayList<Butaca> getButacas() {
         return butacas;
@@ -68,27 +98,28 @@ public class Cine {
 	}
 	
 	/**
-	 * Este método asigna aleatoriamente espectadores
+	 * Este mï¿½todo asigna aleatoriamente espectadores
 	 */
 	public void asignarEspectadoresAleatoriamente() {
         Iterator<Espectador> itr = this.espectadores.iterator();
         while(itr.hasNext()){
             Espectador espectador=itr.next();
-            int butaca = (int) ((Math.random() * (this.butacas.size() - 1)) + 1) - 1;
-            while(this.butacas.get(butaca).isOcupado()) {
-                butaca = (int) ((Math.random() * (this.butacas.size() - 1)) + 1) - 1;
-            }
             
-            espectador.setButacaAsignada(this.butacas.get(butaca).getNombre());
+            // CREAR IF CON EL EL METODO VALIDAR COMO CONDICION, METER DENTRO DEL IF TODO EL BLOQUE INFERIOR.
+            //-----------------------------------------
+            
+	            // Busca una butaca aleatoria, comprueba que no este ocupada, asigna la primera que encuentra libre
+	            int butaca = (int) ((Math.random() * (this.butacas.size() - 1)) + 1) - 1;
+	            while(this.butacas.get(butaca).isOcupado()) {
+	                butaca = (int) ((Math.random() * (this.butacas.size() - 1)) + 1) - 1;
+	            }
+	            this.butacas.get(butaca).setOcupado(true);
+	            
+	            espectador.setButacaAsignada(this.butacas.get(butaca).getNombre());
+	            
+	        //-----------------------------------------
         }
     }
 	
-	/**
-	 * Este método inserta espectadores en la lista de espectadores
-	 * 
-	 * @param e el espectador
-	 */
-	public void nuevoEspectador(Espectador e) {
-		this.espectadores.add(e);
-	}
+	
 }

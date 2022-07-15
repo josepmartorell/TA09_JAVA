@@ -55,10 +55,10 @@ public class MainApp {
 			case "6":
 				// TODO
 				Pelicula peli = new Pelicula("Thor: Love and Thunder", 119, 12, "Taika Waititi");
-				Cine cine = new Cine(peli);
+				Cine cine = new Cine(peli, true);
 				int numEspectadores = Integer.parseInt(JOptionPane.showInputDialog(
-						"Introduce el número de espectadores que irán a ver la nueva película de Thor:"));
-				crearEspectadoresAleatorios(numEspectadores, cine);
+						"Introduce el nï¿½mero de espectadores que irï¿½n a ver la nueva pelï¿½cula de Thor:"));
+				cine.crearEspectadoresAleatorios(numEspectadores, cine);
 				cine.asignarEspectadoresAleatoriamente();
 
 				break;
@@ -67,30 +67,5 @@ public class MainApp {
 			}
 
 		} while (!opcion.equals("0"));
-	}
-
-	public static void crearEspectadoresAleatorios(int num, Cine cine) {
-
-		final String chars = "abcdefghijklmnopqrstuvwxyz";
-
-		for (int i = 0; i < num; i++) {
-			// Edad random
-			int edad = (int) (Math.random() * (110 - 4)) + 4;
-
-			// Dinero random
-			float dinero = (float) (Math.random() * (100 - 0)) + 0;
-
-			// Nombre random
-			SecureRandom random = new SecureRandom();
-			String name = IntStream.range(0, ((int) (Math.random() * (10 - 3)) + 3))
-					.map(k -> random.nextInt(chars.length()))
-					.mapToObj(randomIndex -> String.valueOf(chars.charAt(randomIndex))).collect(Collectors.joining());
-
-			// Creamos un espectador
-			Espectador e = new Espectador(name, edad, dinero, "");
-
-			// Lo insertamos en la lista de espectadores del cine
-			cine.nuevoEspectador(e);
-		}
 	}
 }
