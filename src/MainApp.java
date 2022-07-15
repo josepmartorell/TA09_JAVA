@@ -15,7 +15,7 @@ public class MainApp {
 				+ "\n3 - Aplicación Libro"
 				+ "\n4 - Aplicación Raices"
 				+ "\n5 - Aplicación Aula POO"
-				+ "\n5 - Aplicación Cine"
+				+ "\n6 - Aplicación Cine"
 				+ "\n0 - SALIR";
 		String opcion = "";
 		
@@ -45,6 +45,9 @@ public class MainApp {
 				// TODO
 				break;
 			case "5":
+				// TODO
+				break;
+			case "6":
 				// TODO
 				break;
 			default:
