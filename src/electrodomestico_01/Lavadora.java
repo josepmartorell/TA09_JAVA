@@ -1,5 +1,6 @@
 package electrodomestico_01;
 
+
 public class Lavadora extends Electrodomestico {
 	
 	final float CARGA_DEFAULT = 5; // en kg

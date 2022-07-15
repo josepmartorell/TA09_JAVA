@@ -1,5 +1,6 @@
 package electrodomestico_01;
 
+
 public class Television extends Electrodomestico {
 
 	private float resolucion;
