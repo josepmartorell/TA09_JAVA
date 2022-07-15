@@ -1,5 +1,7 @@
 import javax.swing.JOptionPane;
 
+import electrodomestico_01.Lavadora;
+
 public class MainApp {
 
 	public static void main(String[] args) {
