@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import javax.swing.JOptionPane;
+
 public class Cine {
     private ArrayList<Butaca> butacas = new ArrayList<Butaca>();
     private Pelicula pelicula;
@@ -120,6 +122,29 @@ public class Cine {
 	        //-----------------------------------------
         }
     }
+	/**
+	 * valida que exista localidad libre, la edad permitida para la pelicula y el dinero del espectador
+	 * @param aforo
+	 * @param edad
+	 * @param dinero
+	 * @return
+	 */
+	public boolean validar(boolean aforo, int edad, float dinero) {
+		
+		if((aforo != true) && (edad < edad) && (dinero < precioEntrada)) {		
+			return false;				
+		}
+	
+		return true;	
+	}
+
+	public String mostrarEspectadores() {
+		// TODO POR PANTALLA espectadores, nombre, dinero, edad
+			ArrayList<Espectador> gente = this.getEspectadores();
+			JOptionPane.showMessageDialog(null, "ESPECTADORES: "+this.getEspectadores(), null, JOptionPane.INFORMATION_MESSAGE);
+		
+		return null;
+	}
 	
 	
 }

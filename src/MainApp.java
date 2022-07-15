@@ -54,12 +54,18 @@ public class MainApp {
 				break;
 			case "6":
 				// TODO
-				Pelicula peli = new Pelicula("Thor: Love and Thunder", 119, 12, "Taika Waititi");
-				Cine cine = new Cine(peli, true);
+				Pelicula pelicula = new Pelicula("El club de la lucha", 90, 18, "David Fincher");
+				JOptionPane.showMessageDialog(null, "TITULO: "+pelicula.getTitulo()
+				+"\nDURACION: "+pelicula.getDuracion()
+				+"\nEDAD MINIMA: "+pelicula.getEdadMinima()
+				+"\nDIRECTOR: "+pelicula.getDirector()
+				+"\n", "CINE", JOptionPane.INFORMATION_MESSAGE);
+
+				Cine cine = new Cine(pelicula, true);
 				int numEspectadores = Integer.parseInt(JOptionPane.showInputDialog(
-						"Introduce el n�mero de espectadores que ir�n a ver la nueva pel�cula de Thor:"));
-				cine.crearEspectadoresAleatorios(numEspectadores, cine);
-				cine.asignarEspectadoresAleatoriamente();
+						"Introduce el numero de espectadores que iran a ver la pelicula de culto EL CLUB DE LA LUCHA:"));
+				cine.crearEspectadoresAleatorios(numEspectadores, cine);				
+				cine.asignarEspectadoresAleatoriamente();		
 
 				break;
 			default:
