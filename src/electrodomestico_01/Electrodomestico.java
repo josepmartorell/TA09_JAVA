@@ -1,3 +1,4 @@
+package electrodomestico_01;
 import java.util.Hashtable;
 
 public class Electrodomestico {
