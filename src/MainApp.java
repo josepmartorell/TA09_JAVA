@@ -32,7 +32,7 @@ public class MainApp {
 						+"\nCONSUMO ENERGÉTICO: "+lavadora.getConsumoEnergetico()
 						+"\nPESO: "+lavadora.getPeso()
 						+"\nCARGA: "+lavadora.getCarga()
-						+"\nPRECIO FINAL: "+lavadora.precioFinal("E", 7.00F)
+						+"\nPRECIO FINAL: "+lavadora.precioFinal()
 						+"\n", "CLASE LAVADORA", JOptionPane.INFORMATION_MESSAGE);
 				break;
 			case "2":

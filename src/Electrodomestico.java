@@ -91,9 +91,9 @@ public class Electrodomestico {
 		}	
 	}
 	
-	public float precioFinal(String consumoEnerg, float peso){
+	public float precioFinal(){
 		
-		float finalPrice = 0.0F;
+		float finalPrice = this.precioBase;
 		
 		Hashtable<String, Float> consumptionEnergy = new Hashtable<String, Float>();
 		consumptionEnergy.put("A", 100F);
@@ -103,8 +103,8 @@ public class Electrodomestico {
 		consumptionEnergy.put("E", 30F);
 		consumptionEnergy.put("F", 10F);
 		
-		finalPrice += consumptionEnergy.get(consumoEnerg);
-		
+		finalPrice += consumptionEnergy.get(this.consumoEnergetico);
+				
 		if((peso >= 0) && (peso <= 19)) {
 			finalPrice += 10F;
 		} else if ((peso >= 20) && (peso <= 49)) {

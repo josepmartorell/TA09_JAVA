@@ -27,13 +27,13 @@ public class Lavadora extends Electrodomestico {
 		return carga;
 	}
 	
-	public float precioFinal(String consumoEnergetico, float peso) {
-		super.precioFinal(consumoEnergetico, peso);
+	public float precioFinal() {
+		float precioFinal = super.precioFinal();
 		if(this.carga > 30) {
-			this.precioBase += 50;
+			precioFinal = this.precioBase + 50;
 		}
 		
-		return precioBase;
+		return precioFinal;
 	}
 
 }

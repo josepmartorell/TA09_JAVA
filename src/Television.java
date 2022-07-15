@@ -28,15 +28,15 @@ public class Television extends Electrodomestico {
 	}
 	
 	public float precioFinal(String sintonizadorTDT, float resolucion) {
-		super.precioFinal(consumoEnergetico, peso);
+		float precioFinal = super.precioFinal();
 		if(this.resolucion > 40) {
-			this.precioBase *= 1.30;
+			precioFinal *= 1.30;
 		}
 		if (this.sintonizadorTDT != false) {
-			this.precioBase += 50;
+			precioFinal += 50;
 		}
 		
-		return precioBase;
+		return precioFinal;
 	}
 
 	public float getResolucion() {
