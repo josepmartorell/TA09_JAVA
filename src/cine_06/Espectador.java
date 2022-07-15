@@ -53,5 +53,5 @@ public class Espectador {
 
 	public void setButacaAsignada(String butacaAsignada) {
 		this.butacaAsignada = butacaAsignada;
-	}	
+	}
 }
