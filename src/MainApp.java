@@ -1,4 +1,5 @@
 import java.security.SecureRandom;
+import java.util.Iterator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -54,6 +55,7 @@ public class MainApp {
 				break;
 			case "6":
 				// TODO
+			
 				Pelicula pelicula = new Pelicula("El club de la lucha", 90, 18, "David Fincher");
 				JOptionPane.showMessageDialog(null, "TITULO: "+pelicula.getTitulo()
 				+"\nDURACION: "+pelicula.getDuracion()
@@ -63,10 +65,25 @@ public class MainApp {
 
 				Cine cine = new Cine(pelicula, true);
 				int numEspectadores = Integer.parseInt(JOptionPane.showInputDialog(
-						"Introduce el numero de espectadores que iran a ver la pelicula de culto EL CLUB DE LA LUCHA:"));
+						"Introduce el numero de espectadores que iran a ver la pelicula de culto EL CLUB DE LA LUCHA (max. aforo 72):"));
 				cine.crearEspectadoresAleatorios(numEspectadores, cine);				
-				cine.asignarEspectadoresAleatoriamente();		
-
+				cine.asignarEspectadoresAleatoriamente();
+				
+				
+				// MOSTRAR ESPECTADORE, SOLO ES UNA PRUEBA, ESTA MAL
+				// ----------------------------------------------------------
+				
+				Iterator<Espectador> it = cine.getEspectadores().iterator();
+		        
+				int cont = 1;
+		        while(it.hasNext()){
+		            Espectador e = it.next();
+		            if(e.getButacaAsignada()!="") {
+		            System.out.println(cont + ". La persona: " + e.getNombre() + " | butaca: " + e.getButacaAsignada());
+		            cont++;}
+		        }
+		        // ----------------------------------------------------------
+		        
 				break;
 			default:
 				JOptionPane.showMessageDialog(null, "Opción incorrecta");
