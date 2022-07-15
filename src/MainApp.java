@@ -10,12 +10,12 @@ public class MainApp {
 	
 	public static void initializeMenu(){
 		final String menuOpciones = "Elija una opción."
-				+ "\n1 - Clase Electrodoméstico"
-				+ "\n2 - Clase Serie"
-				+ "\n3 - Clase Libro"
-				+ "\n4 - Clase Raices"
-				+ "\n5 - Programa Aula POO"
-				+ "\n5 - Programa Cine"
+				+ "\n1 - Aplicación Electrodoméstico"
+				+ "\n2 - Aplicación Serie"
+				+ "\n3 - Aplicación Libro"
+				+ "\n4 - Aplicación Raices"
+				+ "\n5 - Aplicación Aula POO"
+				+ "\n5 - Aplicación Cine"
 				+ "\n0 - SALIR";
 		String opcion = "";
 		
@@ -26,7 +26,14 @@ public class MainApp {
 				JOptionPane.showMessageDialog(null, "FIN DE PROGRAMA");
 				break;
 			case "1":
-				// TODO
+				Lavadora lavadora = new Lavadora();
+				JOptionPane.showMessageDialog(null, "PRECIO BASE: "+lavadora.getPrecioBase()
+						+"\nCOLOR: "+lavadora.getColor()
+						+"\nCONSUMO ENERGÉTICO: "+lavadora.getConsumoEnergetico()
+						+"\nPESO: "+lavadora.getPeso()
+						+"\nCARGA: "+lavadora.getCarga()
+						+"\nPRECIO FINAL: "+lavadora.precioFinal("E", 7.00F)
+						+"\n", "CLASE LAVADORA", JOptionPane.INFORMATION_MESSAGE);
 				break;
 			case "2":
 				// TODO
