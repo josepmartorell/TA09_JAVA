@@ -91,35 +91,35 @@ public class Electrodomestico {
 		}	
 	}
 	
-//	public float precioFinal(String consumoEnerg, float peso){
-//		
-//		float finalPrice = 0.0F;
-//		
-//		Hashtable<String, Float> consumptionEnergy = new Hashtable<String, Float>();
-//		consumptionEnergy.put("A", 100F);
-//		consumptionEnergy.put("B", 80F);
-//		consumptionEnergy.put("C", 60F);
-//		consumptionEnergy.put("D", 50F);
-//		consumptionEnergy.put("E", 30F);
-//		consumptionEnergy.put("F", 10F);
-//		
-//		finalPrice += consumptionEnergy.get(consumoEnerg);
-//		
-//		if((peso >= 0) && (peso <= 19)) {
-//			finalPrice += 10;
-//		} else if ((peso >= 20) && (peso <= 49)) {
-//			finalPrice += 50;
-//		} else if ((peso >= 50) && (peso <= 79)) {
-//			finalPrice += 80;
-//		} else if (peso >= 80) {
-//			finalPrice += 100;			
-//		} else {
-//			return -1;
-//		}
-//		
-//		return finalPrice;
-//		
-//			
-//	}
+	public float precioFinal(String consumoEnerg, float peso){
+		
+		float finalPrice = 0.0F;
+		
+		Hashtable<String, Float> consumptionEnergy = new Hashtable<String, Float>();
+		consumptionEnergy.put("A", 100F);
+		consumptionEnergy.put("B", 80F);
+		consumptionEnergy.put("C", 60F);
+		consumptionEnergy.put("D", 50F);
+		consumptionEnergy.put("E", 30F);
+		consumptionEnergy.put("F", 10F);
+		
+		finalPrice += consumptionEnergy.get(consumoEnerg);
+		
+		if((peso >= 0) && (peso <= 19)) {
+			finalPrice += 10F;
+		} else if ((peso >= 20) && (peso <= 49)) {
+			finalPrice += 50F;
+		} else if ((peso >= 50) && (peso <= 79)) {
+			finalPrice += 80F;
+		} else if (peso >= 80) {
+			finalPrice += 100F;			
+		} else {
+			return -1;
+		}
+		
+		return finalPrice;
+		
+			
+	}
 
 }
