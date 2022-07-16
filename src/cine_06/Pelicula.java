@@ -9,7 +9,7 @@ public class Pelicula {
 	
 	
 	/**
-	 * Default constructor
+	 * Constructor con todos los atributos
 	 * 
 	 * @param titulo
 	 * @param duracion
@@ -24,6 +24,7 @@ public class Pelicula {
 	}
 
 
+	// Getters y setters
 	
 	/**
 	 * @return the titulo

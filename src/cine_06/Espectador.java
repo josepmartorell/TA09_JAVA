@@ -15,6 +15,14 @@ public class Espectador {
 		this.butacaAsignada = "";
 	}
 
+	/**
+	 * Constructor con todos los atributos
+	 * 
+	 * @param nombre
+	 * @param edad
+	 * @param dinero
+	 * @param butacaAsignada
+	 */
 	public Espectador(String nombre, int edad, float dinero, String butacaAsignada) {
 		
 		this.nombre = nombre;
@@ -23,6 +31,10 @@ public class Espectador {
 		this.butacaAsignada = butacaAsignada;
 	}
 
+	
+	
+	// Getters y setters
+	
 	public String getNombre() {
 		return nombre;
 	}

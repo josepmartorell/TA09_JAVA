@@ -5,18 +5,27 @@ import electrodomestico_01.Lavadora;
 
 public class MainApp {
 
+	/**
+	 * Metodo main que llama al menu principal
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 		initializeMenu();
 	}
 
+	/**
+	 * Menu inicial
+	 */
 	public static void initializeMenu() {
+		
+		// Mensaje con las diferentes opciones del menu
 		final String menuOpciones = "Elija una opci贸n." + "\n1 - Aplicaci贸n Electrodom茅stico"
 				+ "\n2 - Aplicaci贸n Serie" + "\n3 - Aplicaci贸n Libro" + "\n4 - Aplicaci贸n Raices"
 				+ "\n5 - Aplicaci贸n Aula POO" + "\n6 - Aplicaci贸n Cine" + "\n0 - SALIR";
 		String opcion = "";
 
+		// Bucle infinito del menu hasta que se cierre con el Exit o cancelando
 		do {
 			opcion = JOptionPane.showInputDialog(menuOpciones);
 			switch (opcion) {
@@ -46,6 +55,7 @@ public class MainApp {
 				break;
 			case "6":
 				salaProyeccion();
+				
 				break;
 			default:
 				JOptionPane.showMessageDialog(null, "Opci贸n incorrecta");
@@ -53,25 +63,35 @@ public class MainApp {
 
 		} while (!opcion.equals("0"));
 		
-		
 	}
 	
+	/**
+	 * Metodo que muestra las caracter韘ticas de la pel韈ula en el cine
+	 */
 	public static void salaProyeccion() {
 		
+		// Creamos la pelicula
 		Pelicula pelicula = new Pelicula("El club de la lucha", 90, 18, "David Fincher");
 		
+		// Mostramos sus atributos
 		JOptionPane.showMessageDialog(null, "TITULO: "+pelicula.getTitulo()
 		+"\nDURACION: "+pelicula.getDuracion()
 		+"\nEDAD MINIMA: "+pelicula.getEdadMinima()
 		+"\nDIRECTOR: "+pelicula.getDirector()
+		+"\nCOSTE: 10�"
 		+"\n", "CINE", JOptionPane.INFORMATION_MESSAGE);
 	 
 		platea();
 		
-
 	}
 	
 
+	/**
+	 * Metodo que ...
+	 * 
+	 * @param arr
+	 * @param chart
+	 */
     private static void alignamentJoption(String[][]arr, String chart) {
     	
         String output;        
@@ -90,6 +110,9 @@ public class MainApp {
        
     }
 
+    /**
+     * Metodo que...
+     */
 	public static void platea() {
 		
 		String[][]platea={{"1A","1B","1C","1D","1E","1F","1G","1H","1I"},
@@ -102,9 +125,15 @@ public class MainApp {
 						  {"8A","8B","8C","8D","8E","8F","8G","8H","8I"}};    
 		alignamentJoption(platea, "PLATEA");
 		alignamentJoption(randomizeButacas(platea), "BUTACAS DISPONIBLES");
-		
 	}
-	 public static String[][] randomizeButacas(String butacas[][]) {
+	
+	/**
+	 * Metodo que...
+	 * 
+	 * @param butacas
+	 * @return
+	 */
+	public static String[][] randomizeButacas(String butacas[][]) {
 		 
 		 int butaca;
 		 if (butacas != null) {
@@ -116,12 +145,6 @@ public class MainApp {
 			    	}			    	
 			  }		    
 		}
-		return butacas;
-		 
-
-		 
-	}
-
-	
-    
+		return butacas;	 
+	}    
 }
