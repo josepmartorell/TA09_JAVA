@@ -50,8 +50,7 @@ public class MainApp {
 			case "4":
 				pruebasCuartoEjercicio();
 				break;
-			case "5":
-				// TODO
+			case "5":			
 				pruebasQuintoEjercicio();
 				break;
 			case "6":
@@ -262,7 +261,7 @@ public class MainApp {
 			
 		}
 		
-		JOptionPane.showMessageDialog(null, "¡Prueba finalizada!");
+		JOptionPane.showMessageDialog(null, "ï¿½Prueba finalizada!");
 	}
 	
 	/**
@@ -277,7 +276,6 @@ public class MainApp {
 			Estudiante e = null;
 			while(it.hasNext()) {
 				e = it.next();
-				System.out.println(e.isAsistencia());
 				if (e.isAsistencia() && e.getSexo()=='M') {
 					count1++;
 				}

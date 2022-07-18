@@ -159,7 +159,6 @@ public class Aula {
 				if (e.isAsistencia()) {
 					// Contamos alumnos que han asistido
 					count++;
-					System.out.println("hola");
 				}
 			}
 			// Si la asistencia de alumnos llega al 50% del maximo el aula es valida
