@@ -203,30 +203,41 @@ public class MainApp {
 	}
 	
 	/**
-	 * Metodo que prueba el tercer ejericio
+	 * Metodo de prueba del tercer ejercicio
 	 */
 	public static void pruebasTercerEjercicio() {
+		
 		Libro[] libro = new Libro[2];
+		libro[0] = new Libro("ISBN75648334", "Psicología casera para todos", "Bonifacio Autier Casanova", 367);
+		libro[1] = new Libro("ISBN66687888", "Principios de psicología aplicada", "Autier Sanromán Amer", 457);
+			
+		String chart = compararNumPaginas(libro);  
+		
+		JOptionPane.showMessageDialog(null, "TÍTULO "+libro[0].getTitulo()+"- Autor "+libro[0].getAutor()+"- ISBN "+libro[0].getIsbn()+libro[0].getNumPaginas()+"\n"
+				+"TÍTULO "+libro[1].getTitulo()+"- Autor "+libro[1].getAutor()+"- ISBN "+libro[1].getIsbn()+libro[1].getNumPaginas() , "LIBRARY", JOptionPane.INFORMATION_MESSAGE);
+		
+		JOptionPane.showMessageDialog(null, libro[0].getTitulo()+chart+libro[0].getTitulo());
+	}
+	
+	
+	/**
+	 * metodo auxiliar del tercer ejercicio que compara dos libros y devuelve una cadena con el resultado
+	 * @param libro
+	 * @return String opt
+	 */
+	public static String compararNumPaginas(Libro[] libro) {
 		String opt = "";
-
-		libro[0] = new Libro("ISBN75648334", "Psicologia casera para todos", "Bonifacio Autier Casanova", 367);
-		libro[1] = new Libro("ISBN66687888", "Principios de psicologia aplicada", "Autier Sanroman Amer", 367);
-
 		int numPag1 = libro[0].getNumPaginas();
 		int numPag2 = libro[1].getNumPaginas();
-		String mensaje[] = { " Tiene mas paginas que ", " Tiene menos paginas que ", " Tiene tantas paginas como " };
-		if (numPag1 > numPag2) {
+		String mensaje[] = {" Tiene más paginas que ", " Tiene menos paginas que ", " Tiene tantas páginas como "};
+		if(numPag1 > numPag2) {
 			opt = mensaje[0];
 		} else if (numPag1 < numPag2) {
 			opt = mensaje[1];
-		} else {
+		}else {
 			opt = mensaje[2];
 		};
-
-		JOptionPane.showMessageDialog(null,
-				"TITULO " + libro[0].getTitulo() + " Autor " + libro[0].getAutor() + " ISBN " + libro[0].getIsbn()
-						+ libro[0].getNumPaginas() + "\n" + "TITULO " + libro[1].getTitulo() + " Autor "
-						+ libro[1].getAutor() + " ISBN " + libro[1].getIsbn() + libro[1].getNumPaginas());
-		JOptionPane.showMessageDialog(null, libro[0].getTitulo() + opt + libro[0].getTitulo());
+		return opt;
 	}
+	
 }
