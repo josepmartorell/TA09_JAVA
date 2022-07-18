@@ -125,7 +125,6 @@ public class Videojuego implements Entregable{
 
 	}
 
-	@Override
 	public boolean compareTo(Object a) {
         boolean match = false;
         if (this.horasEstimadas == (int) a)

@@ -67,31 +67,26 @@ public class Serie implements Entregable {
 		this.creador = creador;
 	}
 
-	@Override
 	public String toString() {
 		return "Serie [titulo=" + titulo + ", numTemporadas=" + numTemporadas + ", entregado=" + entregado + ", genero="
 				+ genero + ", creador=" + creador + "]";
 	}
 
-	@Override
 	public void entregar() {
 		this.entregado = true;
 		
 	}
 
-	@Override
 	public void devolver() {
 		this.entregado = false;
 		
 	}
 
-	@Override
 	public boolean isEntregado() {
 		return entregado;
 		
 	}
 
-	@Override
 	public boolean compareTo(Object a) {
         boolean match = false;
         if (this.numTemporadas == (int) a)
