@@ -35,42 +35,7 @@ public class MainApp {
 				JOptionPane.showMessageDialog(null, "FIN DE PROGRAMA");
 				break;
 			case "1":
-				// Creamos 10 electrodomesticos por defecto
-				Electrodomestico[] electrodomesticos = {
-						new Electrodomestico(),
-						new Electrodomestico(120F, 54),
-						new Electrodomestico(),
-						new Electrodomestico(300F, 80),
-						new Lavadora(),
-						new Lavadora(354.99F, 12),
-						new Lavadora(),
-						new Television(),
-						new Television(599.99F, 10),
-						new Television(),
-				};
-				
-				// Inicializamos variables para recoger el precio de los electrodomesticos de cada clase
-				float precioElec = 0F;
-				float precioLavadora = 0F;
-				float precioTelevision = 0F;
-				
-				// Bucle recorriendo el array de electrodomesticos, llamando a la funcion precioFinal() de cada uno y sumandolos al total de cada tipo
-				for (int i = 0; i < electrodomesticos.length; i++) {
-					float precioFinal = 0;
-					precioFinal = electrodomesticos[i].precioFinal();
-					if(electrodomesticos[i] instanceof Electrodomestico) {
-						precioElec += electrodomesticos[i].precioFinal();
-					}
-					if (electrodomesticos[i] instanceof Lavadora) {
-						precioLavadora += electrodomesticos[i].precioFinal();
-					}
-					if (electrodomesticos[i] instanceof Television) {
-						precioTelevision += electrodomesticos[i].precioFinal();
-					}
-				}
-				
-				// Mostrar el resultado por pantalla
-				JOptionPane.showMessageDialog(null, "Precio electrodomesticos: " + precioElec + " eur.\nPrecio lavadoras: " + precioLavadora + " eur.\nPrecio televisiones: " + precioTelevision + " eur.");
+				pruebasPrimerEjercicio();
 				break;
 			case "2":
 				// TODO
@@ -93,5 +58,39 @@ public class MainApp {
 			}
 
 		} while (!opcion.equals("0"));
+	}
+	
+	/**
+	 * Metodo que hace las pruebas del primer ejercicio
+	 */
+	public static void pruebasPrimerEjercicio() {
+		// Creamos 10 electrodomesticos por defecto
+		Electrodomestico[] electrodomesticos = { new Electrodomestico(), new Electrodomestico(120F, 54),
+				new Electrodomestico(), new Electrodomestico(300F, 80), new Lavadora(), new Lavadora(354.99F, 12),
+				new Lavadora(), new Television(), new Television(599.99F, 10), new Television(), };
+
+		// Inicializamos variables para recoger el precio de los electrodomesticos de
+		// cada clase
+		float precioElec = 0F;
+		float precioLavadora = 0F;
+		float precioTelevision = 0F;
+
+		// Bucle recorriendo el array de electrodomesticos, llamando a la funcion
+		// precioFinal() de cada uno y sumandolos al total de cada tipo
+		for (int i = 0; i < electrodomesticos.length; i++) {
+			if (electrodomesticos[i] instanceof Electrodomestico) {
+				precioElec += electrodomesticos[i].precioFinal();
+			}
+			if (electrodomesticos[i] instanceof Lavadora) {
+				precioLavadora += electrodomesticos[i].precioFinal();
+			}
+			if (electrodomesticos[i] instanceof Television) {
+				precioTelevision += electrodomesticos[i].precioFinal();
+			}
+		}
+
+		// Mostrar el resultado por pantalla
+		JOptionPane.showMessageDialog(null, "Precio electrodomesticos: " + precioElec + " eur.\nPrecio lavadoras: "
+				+ precioLavadora + " eur.\nPrecio televisiones: " + precioTelevision + " eur.");
 	}
 }

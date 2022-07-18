@@ -6,7 +6,9 @@ public class Videojuego implements Entregable{
 	private int horasEstimadas;
 	private boolean entregado;
 	private String genero;
-	private String compañia;
+	
+	// Cambiamos el nombre a ingles para ahorrar errores
+	private String company;
 	
 	public Videojuego() {
 		
@@ -14,7 +16,7 @@ public class Videojuego implements Entregable{
 		this.horasEstimadas = 0;
 		this.entregado = false;
 		this.genero = "Default";
-		this.compañia = "Default";
+		this.company = "Default";
 	}
 
 	public Videojuego(String titulo, int horasEstimadas) {
@@ -23,16 +25,16 @@ public class Videojuego implements Entregable{
 		this.horasEstimadas = horasEstimadas;
 		this.entregado = false;
 		this.genero = "Default";
-		this.compañia = "Default";
+		this.company = "Default";
 	}
 	
-	public Videojuego(String titulo, int horasEstimadas, String genero, String compañia) {
+	public Videojuego(String titulo, int horasEstimadas, String genero, String company) {
 		
 		this.titulo = titulo;
 		this.horasEstimadas = horasEstimadas;
 		this.entregado = false;
 		this.genero = genero;
-		this.compañia = compañia;
+		this.company = company;
 	}
 
 	/**
@@ -78,38 +80,46 @@ public class Videojuego implements Entregable{
 	}
 
 	/**
-	 * @return the compañia
+	 * @return the company
 	 */
-	public String getCompañia() {
-		return compañia;
+	public String getCompany() {
+		return company;
 	}
 
 	/**
 	 * @param compañia the compañia to set
 	 */
-	public void setCompañia(String compañia) {
-		this.compañia = compañia;
+	public void setCompany(String company) {
+		this.company = company;
 	}
 
 	@Override
 	public String toString() {
 		return "Videojuego [titulo=" + titulo + ", horasEstimadas=" + horasEstimadas + ", entregado=" + entregado
-				+ ", genero=" + genero + ", compañia=" + compañia + "]";
+				+ ", genero=" + genero + ", compañia=" + company + "]";
 	}
 
-	@Override
+	/**
+	 * Metodo que cambia el estado de entregado a cierto
+	 */
 	public void entregar() {
 		this.entregado = true;
 		
 	}
 
-	@Override
+	/**
+	 * Metodo que cambia el estado de entregado a falso
+	 */
 	public void devolver() {
 		this.entregado = false;
 		
 	}
 
-	@Override
+	/**
+	 * Metodo que devuelve el estado de entregado
+	 * 
+	 * @return entregado verdadero o falso
+	 */
 	public boolean isEntregado() {
 		return entregado;
 
