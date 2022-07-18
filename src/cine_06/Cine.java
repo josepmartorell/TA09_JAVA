@@ -176,7 +176,7 @@ public class Cine {
 	}
 
 	/**
-	 * M�todo que muestra los espectadores y sus atributos en sus respectivas
+	 * Metodo que muestra los espectadores y sus atributos en sus respectivas
 	 * butacas
 	 * 
 	 * @return
@@ -249,7 +249,7 @@ public class Cine {
 	}
 
 	/**
-	 * Metodo que crea y muestra las caracter�sticas de la pel�cula en el cine,
+	 * Metodo que crea y muestra las caracteristicas de la pelicula en el cine,
 	 * pregunta cuanta gente intentara ver la pelicula, filtra a la gente entre los
 	 * que pueden ser o no espectadores, les asigna butaca y muestra toda la info
 	 * por pantalla

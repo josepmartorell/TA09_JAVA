@@ -24,9 +24,9 @@ public class MainApp {
 	public static void initializeMenu() {
 
 		// Mensaje con las diferentes opciones del menu
-		final String menuOpciones = "Elija una opción." + "\n1 - Aplicación Electrodoméstico" + "\n2 - Aplicación Serie"
-				+ "\n3 - Aplicación Libro" + "\n4 - Aplicación Raices" + "\n5 - Aplicación Aula POO"
-				+ "\n6 - Aplicación Cine" + "\n0 - SALIR";
+		final String menuOpciones = "Elija una opcion." + "\n1 - Aplicacion Electrodomestico" + "\n2 - Aplicacion Serie"
+				+ "\n3 - Aplicacion Libro" + "\n4 - Aplicacion Raices" + "\n5 - Aplicacion Aula POO"
+				+ "\n6 - Aplicacion Cine" + "\n0 - SALIR";
 		String opcion = "";
 
 		// Bucle infinito del menu hasta que se cierre con el Exit o cancelando
@@ -56,7 +56,7 @@ public class MainApp {
 				cine.salaProyeccion();
 				break;
 			default:
-				JOptionPane.showMessageDialog(null, "Opción incorrecta");
+				JOptionPane.showMessageDialog(null, "Opcionn incorrecta");
 			}
 
 		} while (!opcion.equals("0"));
@@ -106,51 +106,98 @@ public class MainApp {
 	 * Metodo que hace pruebas del segundo ejercicio
 	 */
 	public static void pruebasSegundoEjercicio() {
-		// instanciamos 5 objetos Serie y también 5 objetos Videojuego con distintos constructores
+		// instanciamos 5 objetos Serie y tambien 5 objetos Videojuego con distintos constructores
 		Serie[] serie = {
 				new Serie(),
 				new Serie("Star Trek", "Gene Roddenberry"),
 				new Serie("Blade Runner 2049", 3, "SciFi", "Ridley Scott"),
 				new Serie("Mr Robot", 4, "Hackers", "Sam Esmail "),
-				new Serie("WestWorld", 4, "Scifi distopic", " Michael Crichton)"),
+				new Serie("WestWorld", 4, "Scifi distopic", " Michael Crichton"),
 		};
 		Videojuego[] videojuego = {
 				new Videojuego(),
 				new Videojuego("Invaders", 2),
 				new Videojuego("Mandinga", 1),
-				new Videojuego("Super Mario", 4, "Acción", "Nintendo"),
-				new Videojuego("World of Tanks", 6, "Bélico", "Gianluigi Buffon"),
+				new Videojuego("Super Mario", 4, "Accion", "Nintendo"),
+				new Videojuego("World of Tanks", 6, "Belico", "Gianluigi Buffon"),
 		};
 		
+		// Preguntamos si queremos devolver la serie mostrada
 		for (int i = 0; i < serie.length; i++){
 			serie[i].entregar();
 			videojuego[i].entregar();
-			JOptionPane.showMessageDialog(null, "Entregada serie "+serie[i].getTitulo()+" dirigida por "+serie[i].getCreador()
-					+ "\nEntregado video juego "+videojuego[i].getTitulo()+" de "+videojuego[i].getCompany());
-			JOptionPane.showMessageDialog(null, "Pulsar aceptar para gestionar el préstamo");
+			JOptionPane.showMessageDialog(null, "Serie entregada  "+serie[i].getTitulo()+"  dirigida por  "+serie[i].getCreador());
+			JOptionPane.showMessageDialog(null, "Videojuego entregado  "+videojuego[i].getTitulo()+"  de  "+videojuego[i].getCompany());
+			JOptionPane.showMessageDialog(null, "Pulsar aceptar para gestionar el prestamo.");
 			boolean prestamo = seleccionarOpcion();
-			if (prestamo != false) {
+			if (prestamo) {
 				serie[i].devolver();
 				videojuego[i].devolver();
-				JOptionPane.showMessageDialog(null, "Devolución serie "+serie[i].getTitulo()+" dirigida por "+serie[i].getCreador()
-						+ "\nDevolución video juego "+videojuego[i].getTitulo()+" de "+videojuego[i].getCompany());					
+				JOptionPane.showMessageDialog(null, "Devolucion de la serie "+serie[i].getTitulo()+" dirigida por "+serie[i].getCreador()
+						+ "\nDevolucion del videojuego "+videojuego[i].getTitulo()+" de "+videojuego[i].getCompany());					
 			}
-			System.exit(i);
 		}
+		
+		// Contamos cuantas series entregadas hay 
+		int count1 = 0;
+		System.out.println("-------------");
+		System.out.println("Series entregadas");
+		for (int i = 0; i< serie.length; i++) {
+			if (serie[i].isEntregado()) {
+				count1++;
+				System.out.println(count1+"- "+serie[i].getTitulo());
+			}
+		}
+		System.out.println("Total de "+count1+" series entregadas.");
+		
+		// Contamos cuantos videojuegos entregados hay
+		int count2 = 0;
+		System.out.println("-------------");
+		System.out.println("Videojuegos entregados");
+		for (int i = 0; i< videojuego.length; i++) {
+			if (videojuego[i].isEntregado()) {
+				count2++;
+				System.out.println(count2+"- "+videojuego[i].getTitulo());
+			}
+		}
+		System.out.println("Total de "+count2+" videojuegos entregados.");
+		
+		// Indicamos el videojuego con mas horas estimadas
+		Videojuego videojuegoMasHoras = videojuego[0];
+		for (int i = 0; i< videojuego.length; i++) {
+			if(videojuego[i].getHorasEstimadas()>videojuegoMasHoras.getHorasEstimadas()) {
+				videojuegoMasHoras = videojuego[i];
+			}
+		}
+		System.out.println("-------------");
+		System.out.println("El siguiente videojuego es el que cuenta con mas horas estimadas: ");
+		System.out.println(videojuegoMasHoras.toString());
+		
+		// Indicamos la serie con mas temporadas
+		Serie s = serie[0];
+		for (int i = 0; i< serie.length; i++) {
+			if(serie[i].getNumTemporadas()>s.getNumTemporadas()) {
+				s = serie[i];
+			}
+		}
+		System.out.println("-------------");
+		System.out.println("La siguiente serie es la que cuenta con mas temporadas: ");
+		System.out.println(s.toString());
 	}
 	
-	
+	/**
+	 * Este metodo pregunta si el usuario quiere devolver los prestamos
+	 * @return
+	 */
 	public static boolean seleccionarOpcion() {
 		
 		boolean gate = false;		
-		int n = JOptionPane.showConfirmDialog(null, "Devolver los prestamos","VIDEO CLUB",JOptionPane.YES_NO_OPTION);		
+		int n = JOptionPane.showConfirmDialog(null, "Quieres devolver los titulos mostrados anteriormente?","VIDEO CLUB",JOptionPane.YES_NO_OPTION);		
 		if (n == JOptionPane.YES_OPTION) {
 			gate = true;		
 		} else if (n == JOptionPane.NO_OPTION) {
-			System.exit(n);
-		} else {			
+			gate = false;
 		}
 		return gate;				
 	}
-	
 }

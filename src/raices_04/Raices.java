@@ -84,8 +84,8 @@ public class Raices {
 			System.out.println("La equacion solamente tiene un resultado y es: "+result);
 		} else {
 			// En caso de tener dos raices (discriminante positivo)
-			double r1 = (-b + result / (2.0 * a));
-            double r2 = (-b - result / (2.0 * a));
+			double r1 = (-b + Math.pow(result, 0.5) / (2.0 * a));
+            double r2 = (-b - Math.pow(result, 0.5) / (2.0 * a));
             System.out.println("La equacion tiene dos resultados. El primero es " + r1 + " y el segundo es " + r2);
 		}
 	}

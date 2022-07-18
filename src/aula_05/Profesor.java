@@ -12,7 +12,6 @@ public class Profesor extends Persona {
 	 */
 	public Profesor(int edadMax) {
 		super(edadMax);
-		
 		String[] chrs = {"Matematicas", "Filosofia", "Fisica"};
 		Random random = new Random();
 		this.materia = chrs[random.nextInt(3)];
@@ -28,6 +27,8 @@ public class Profesor extends Persona {
 	}
 	
 	/**
+	 * Constructor por todos los parametros
+	 * 
 	 * @param nombre
 	 * @param edad
 	 * @param sexo
@@ -56,12 +57,11 @@ public class Profesor extends Persona {
 	 * Metodo que calcula la asistencia del profesor, probabilidad: 20%
 	 */
 	public boolean asistecia() {
-		
 		int prob = (int) (Math.random() * (4 - 0)) + 0;
 		if (prob == 4) {
-			return true;
-		}else {
 			return false;
+		}else {
+			return true;
 		}
 	}
 }
