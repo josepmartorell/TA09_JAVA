@@ -12,7 +12,6 @@ public class Raices {
 	 * @param c
 	 */
 	public Raices(double a, double b, double c) {
-		super();
 		this.a = a;
 		this.b = b;
 		this.c = c;
@@ -69,24 +68,16 @@ public class Raices {
 	}
 	
 	/**
-	 * Calcula la equación de segundo grado
+	 * Calcula la equaciï¿½n de segundo grado
 	 */
-	public void calcular() {
-		// Primero calculamos el discriminante
-		double result = this.getDiscriminante();
-		
+	public void calcular() {	
 		// En caso que la equacion no tenga solucion (discriminante negativo)
 		if (this.noTieneRaiz()) {
 			System.out.println("La equacion no tiene raices, por lo tanto no tiene resultado (no existe raiz de un numero negativo");
 		} else if(this.tieneRaiz()) {
-			// En caso de tener una sola raiz (discriminante == 0)
-			result = -b /2*a;
-			System.out.println("La equacion solamente tiene un resultado y es: "+result);
+			obtenerRaiz();
 		} else {
-			// En caso de tener dos raices (discriminante positivo)
-			double r1 = (-b + Math.pow(result, 0.5) / (2.0 * a));
-            double r2 = (-b - Math.pow(result, 0.5) / (2.0 * a));
-            System.out.println("La equacion tiene dos resultados. El primero es " + r1 + " y el segundo es " + r2);
+			obtenerRaices();
 		}
 	}
 	
@@ -94,14 +85,24 @@ public class Raices {
 	 * Metodo que imprime las 2 posibles soluciones
 	 */
 	public void obtenerRaices() {
-		// TODO
+		// En caso de tener dos raices (discriminante positivo)
+		if(this.tieneRaices()) {			
+			double r1 = (-b + Math.pow(this.getDiscriminante(), 0.5) / (2.0 * a));
+            double r2 = (-b - Math.pow(this.getDiscriminante(), 0.5) / (2.0 * a));
+            System.out.println("La equacion tiene dos resultados. El primero es " + r1 + " y el segundo es " + r2);
+		}
+
 	}
 	
 	/**
 	 * Metodo que imprime unica raiz, que sera cuando solo tenga una solucion posible
 	 */
 	public void obtenerRaiz( ) {
-		// TODO 
+		if (this.tieneRaiz()) {
+			// En caso de tener una sola raiz (discriminante == 0)
+			double result = -b /2*a;
+			System.out.println("La equacion solamente tiene un resultado y es: "+result);
+		}
 	}
 	
 }
