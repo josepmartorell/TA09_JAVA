@@ -1,6 +1,6 @@
 package serie_02;
 
-public class Serie {
+public class Serie implements Entregable {
 	
 	private String titulo;
 	private int numTemporadas;
@@ -72,4 +72,32 @@ public class Serie {
 		return "Serie [titulo=" + titulo + ", numTemporadas=" + numTemporadas + ", entregado=" + entregado + ", genero="
 				+ genero + ", creador=" + creador + "]";
 	}
+
+	@Override
+	public void entregar() {
+		this.entregado = true;
+		
+	}
+
+	@Override
+	public void devolver() {
+		this.entregado = false;
+		
+	}
+
+	@Override
+	public boolean isEntregado() {
+		return entregado;
+		
+	}
+
+	@Override
+	public boolean compareTo(Object a) {
+        boolean match = false;
+        if (this.numTemporadas == (int) a)
+        	match = true;
+    	return match;
+    	
+	}
+	
 }

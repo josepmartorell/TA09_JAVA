@@ -1,6 +1,6 @@
 package serie_02;
 
-public class Videojuego {
+public class Videojuego implements Entregable{
 	
 	private String titulo;
 	private int horasEstimadas;
@@ -95,6 +95,33 @@ public class Videojuego {
 	public String toString() {
 		return "Videojuego [titulo=" + titulo + ", horasEstimadas=" + horasEstimadas + ", entregado=" + entregado
 				+ ", genero=" + genero + ", compañia=" + compañia + "]";
+	}
+
+	@Override
+	public void entregar() {
+		this.entregado = true;
+		
+	}
+
+	@Override
+	public void devolver() {
+		this.entregado = false;
+		
+	}
+
+	@Override
+	public boolean isEntregado() {
+		return entregado;
+
+	}
+
+	@Override
+	public boolean compareTo(Object a) {
+        boolean match = false;
+        if (this.horasEstimadas == (int) a)
+        	match = true;
+    	return match;
+    	
 	}
 	
 	
