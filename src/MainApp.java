@@ -1,13 +1,13 @@
+import java.util.Iterator;
+
 import javax.swing.JOptionPane;
 
 import cine_06.Cine;
-import electrodomestico_01.Electrodomestico;
-import electrodomestico_01.Lavadora;
-import electrodomestico_01.Television;
+import electrodomestico_01.*;
+import aula_05.*;
 import libro_03.Libro;
 import raices_04.Raices;
-import serie_02.Serie;
-import serie_02.Videojuego;
+import serie_02.*;
 
 public class MainApp {
 
@@ -52,6 +52,7 @@ public class MainApp {
 				break;
 			case "5":
 				// TODO
+				pruebasQuintoEjercicio();
 				break;
 			case "6":
 				Cine cine = new Cine();
@@ -209,20 +210,21 @@ public class MainApp {
 	public static void pruebasTercerEjercicio() {
 		
 		Libro[] libro = new Libro[2];
-		libro[0] = new Libro("ISBN75648334", "Psicología casera para todos", "Bonifacio Autier Casanova", 367);
-		libro[1] = new Libro("ISBN66687888", "Principios de psicología aplicada", "Autier Sanromán Amer", 457);
+		libro[0] = new Libro("ISBN75648334", "Psicologia casera para todos", "Bonifacio Autier Casanova", 367);
+		libro[1] = new Libro("ISBN66687888", "Principios de psicologia aplicada", "Autier Sanroman Amer", 457);
 			
 		String chart = compararNumPaginas(libro);  
 		
-		JOptionPane.showMessageDialog(null, "TÍTULO "+libro[0].getTitulo()+"- Autor "+libro[0].getAutor()+"- ISBN "+libro[0].getIsbn()+libro[0].getNumPaginas()+"\n"
-				+"TÍTULO "+libro[1].getTitulo()+"- Autor "+libro[1].getAutor()+"- ISBN "+libro[1].getIsbn()+libro[1].getNumPaginas() , "LIBRARY", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "TITULO "+libro[0].getTitulo()+"- Autor "+libro[0].getAutor()+"- ISBN "+libro[0].getIsbn()+libro[0].getNumPaginas()+"\n"
+				+"TITULO "+libro[1].getTitulo()+"- Autor "+libro[1].getAutor()+"- ISBN "+libro[1].getIsbn()+libro[1].getNumPaginas() , "LIBRARY", JOptionPane.INFORMATION_MESSAGE);
 		
 		JOptionPane.showMessageDialog(null, libro[0].getTitulo()+chart+libro[0].getTitulo());
 	}
 	
 	
 	/**
-	 * metodo auxiliar del tercer ejercicio que compara dos libros y devuelve una cadena con el resultado
+	 * Metodo auxiliar del tercer ejercicio que compara dos libros y devuelve una cadena con el resultado
+	 * 
 	 * @param libro
 	 * @return String opt
 	 */
@@ -230,7 +232,7 @@ public class MainApp {
 		String opt = "";
 		int numPag1 = libro[0].getNumPaginas();
 		int numPag2 = libro[1].getNumPaginas();
-		String mensaje[] = {" Tiene más paginas que ", " Tiene menos paginas que ", " Tiene tantas páginas como "};
+		String mensaje[] = {" Tiene mas paginas que ", " Tiene menos paginas que ", " Tiene tantas paginas como "};
 		if(numPag1 > numPag2) {
 			opt = mensaje[0];
 		} else if (numPag1 < numPag2) {
@@ -242,7 +244,7 @@ public class MainApp {
 	}
 	
 	/**
-	 * Metodo de prueba del tercer ejercicio
+	 * Metodo de prueba del cuarto ejercicio
 	 */
 	public static void pruebasCuartoEjercicio() {
 		Raices[] raices = {
@@ -260,8 +262,37 @@ public class MainApp {
 			
 		}
 		
-		JOptionPane.showMessageDialog(null, "¡Prueba finalizada!");
-		
+		JOptionPane.showMessageDialog(null, "�Prueba finalizada!");
 	}
 	
+	/**
+	 * Metodo que prueba el quinto ejercicio
+	 */
+	public static void pruebasQuintoEjercicio() {
+		Aula aula = new Aula(1, 16, "Matematicas");
+		if (aula.isAulaValida()) {
+			int count1 = 0;
+			int count2 = 0;
+			Iterator<Estudiante> it = aula.getEstudiantes().iterator();
+			Estudiante e = null;
+			while(it.hasNext()) {
+				e = it.next();
+				System.out.println(e.isAsistencia());
+				if (e.isAsistencia() && e.getSexo()=='M') {
+					count1++;
+				}
+				if (e.isAsistencia() && e.getSexo()=='H') {
+					count2++;
+				}
+			}
+			JOptionPane.showMessageDialog(null, "El numero de alumnas aprobadas es de: "+count1+"\nEl numero de alumnos aprobados es de: "+count2);
+			
+		} else if (!aula.isAulaValida() && !aula.getProfesor().isAsistencia()){
+			JOptionPane.showMessageDialog(null, "No se puede impartir clase ya que el profesor no ha venido.","No hay clase",0);
+		} else if (!aula.isAulaValida() && aula.getProfesor().getMateria().equals(aula.getMateria())) {
+			JOptionPane.showMessageDialog(null, "No se puede impartir clase ya que el profesor no imparte la materia del aula.","No hay clase",0);
+		} else if (!aula.isAulaValida()) {
+			JOptionPane.showMessageDialog(null, "No se puede impartir clase ya que mas de la mitad de alumnos no han asistido a clase.","No hay clase",0);
+		}
+	}
 }

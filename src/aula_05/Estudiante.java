@@ -9,8 +9,9 @@ public class Estudiante extends Persona {
 	 * 
 	 * @param edadMax
 	 */
-	public Estudiante(int edadMax) {
-		super(edadMax);
+	public Estudiante(int edadMax, int edadMin) {
+		super(edadMax, edadMin);
+		this.asistencia = this.asistecia();
 		this.calificacion = (float) (Math.random() * (10 - 0)) + 0;
 	}
 
@@ -18,8 +19,9 @@ public class Estudiante extends Persona {
 	 * @param calificacion
 	 * @param edadMax
 	 */
-	public Estudiante(float calificacion, int edadMax) {
-		super(edadMax);
+	public Estudiante(float calificacion, int edadMax, int edadMin) {
+		super(edadMax, edadMin);
+		this.asistencia = this.asistecia();
 		this.calificacion = calificacion;
 	}
 	
@@ -31,6 +33,7 @@ public class Estudiante extends Persona {
 	 */
 	public Estudiante(String nombre, int edad, char sexo, float calificacion) {
 		super(nombre, edad, sexo);
+		this.asistencia = this.asistecia();
 		this.calificacion = calificacion;
 	}
 	
@@ -55,10 +58,11 @@ public class Estudiante extends Persona {
 		
 		int prob = (int) (Math.random() * (1 - 0)) + 0;
 		if (prob == 1) {
-			return true;
-		}else {
-			return false;
+			this.asistencia = false;
+		} else {
+			this.asistencia = true;
 		}
+		return this.asistencia;
 	}
 
 }

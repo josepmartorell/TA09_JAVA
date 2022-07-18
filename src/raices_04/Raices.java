@@ -76,7 +76,7 @@ public class Raices {
 		// En caso que la equacion no tenga solucion (discriminante negativo)
 		if (this.noTieneRaiz()) {
 			//System.out.println("La equacion no tiene raices, por lo tanto no tiene resultado (no existe raiz de un numero negativo");
-			JOptionPane.showMessageDialog(null, "La equacion no tiene raices, por lo tanto no tiene resultado (no existe raiz de un numero negativo", "RAICES TEST "+numPrueba, JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "La equacion no tiene raices, por lo tanto no tiene resultado (no existe raiz de un numero negativo).", "RAICES TEST "+numPrueba, JOptionPane.INFORMATION_MESSAGE);
 		} else if(this.tieneRaiz()) {
 			obtenerRaiz(numPrueba);
 		} else {

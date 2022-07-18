@@ -10,19 +10,19 @@ public class Profesor extends Persona {
 	 * 
 	 * @param edadMax
 	 */
-	public Profesor(int edadMax) {
-		super(edadMax);
-		String[] chrs = {"Matematicas", "Filosofia", "Fisica"};
-		Random random = new Random();
-		this.materia = chrs[random.nextInt(3)];
+	public Profesor(int edadMax, int edadMin) {
+		super(edadMax, edadMin);
+		this.asistencia = this.asistecia();
+		this.materia = randomMateria();
 	}
 
 	/**
 	 * @param materia
 	 * @param edadMax
 	 */
-	public Profesor(String materia, int edadMax) {
-		super(edadMax);
+	public Profesor(String materia, int edadMax, int edadMin) {
+		super(edadMax, edadMin);
+		this.asistencia = this.asistecia();
 		this.materia = materia;
 	}
 	
@@ -59,9 +59,16 @@ public class Profesor extends Persona {
 	public boolean asistecia() {
 		int prob = (int) (Math.random() * (4 - 0)) + 0;
 		if (prob == 4) {
-			return false;
-		}else {
-			return true;
+			this.asistencia = false;
+		} else {
+			this.asistencia = true;
 		}
+		return this.asistencia;
+	}
+	
+	public String randomMateria() {
+		String[] chrs = {"Matematicas", "Filosofia", "Fisica"};
+		Random random = new Random();
+		return chrs[random.nextInt(3)];
 	}
 }

@@ -8,10 +8,13 @@ abstract class Persona {
 	
 	protected String nombre;
 	protected int edad;
+	protected boolean asistencia;
+	
+	//M para mujer y H para hombre
 	protected char sexo;
 	
-	protected Persona(int edadMax){
-		crearAtributosAleatorios(edadMax);
+	protected Persona(int edadMax, int edadMin){
+		crearAtributosAleatorios(edadMax, edadMin);
 	}
 	
 	/**
@@ -28,49 +31,74 @@ abstract class Persona {
 	/**
 	 * @return the nombre
 	 */
-	protected String getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 
 	/**
 	 * @param nombre the nombre to set
 	 */
-	protected void setNombre(String nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
 	/**
 	 * @return the edad
 	 */
-	protected int getEdad() {
+	public int getEdad() {
 		return edad;
 	}
 
 	/**
 	 * @param edad the edad to set
 	 */
-	protected void setEdad(int edad) {
+	public void setEdad(int edad) {
 		this.edad = edad;
 	}
 
 	/**
 	 * @return the sexo
 	 */
-	protected char getSexo() {
+	public char getSexo() {
 		return sexo;
 	}
 
 	/**
 	 * @param sexo the sexo to set
 	 */
-	protected void setSexo(char sexo) {
+	public void setSexo(char sexo) {
 		this.sexo = sexo;
 	}
 
 	/**
+	 * Metodo abstracto que implementan las clases hijas
+	 * 
+	 * @return
+	 */
+	public abstract boolean asistecia();
+
+	/**
+	 * @return the asistencia
+	 */
+	public boolean isAsistencia() {
+		if (this.asistencia) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * @param asistencia the asistencia to set
+	 */
+	public void setAsistencia(boolean asistencia) {
+		this.asistencia = asistencia;
+	}
+	
+	/**
 	 * Crea y aplica de forma aleatoria atributos para el objeto persona
 	 */
-	private void crearAtributosAleatorios(int edadMax) {
+	private void crearAtributosAleatorios(int edadMax, int edadMin) {
 		
 		// Nombre random
 		final String chars = "abcdefghijklmnopqrstuvwxyz";
@@ -81,16 +109,11 @@ abstract class Persona {
 				.mapToObj(randomIndex -> String.valueOf(chars.charAt(randomIndex))).collect(Collectors.joining());
 		
 		// Edad random
-		this.edad = (int) (Math.random() * (edadMax - 12)) + 12;
+		this.edad = (int) (Math.random() * (edadMax - edadMin)) + edadMin;
 		
 		// Sexo random
 		char[] chrs = {'H', 'M'};
 		Random random1 = new Random();
 		this.sexo = chrs[random1.nextInt(2)];
 	}
-	
-	/**
-	 * @return
-	 */
-	public abstract boolean asistecia();
 }
