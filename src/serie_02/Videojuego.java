@@ -10,8 +10,10 @@ public class Videojuego implements Entregable{
 	// Cambiamos el nombre a ingles para ahorrar errores
 	private String company;
 	
+	/**
+	 * Constructor de videojuego default
+	 */
 	public Videojuego() {
-		
 		this.titulo = "Default";
 		this.horasEstimadas = 0;
 		this.entregado = false;
@@ -19,6 +21,12 @@ public class Videojuego implements Entregable{
 		this.company = "Default";
 	}
 
+	/**
+	 * Constructor de videojuego solamente con titulo y horas
+	 * 
+	 * @param titulo
+	 * @param horasEstimadas
+	 */
 	public Videojuego(String titulo, int horasEstimadas) {
 		
 		this.titulo = titulo;
@@ -28,6 +36,14 @@ public class Videojuego implements Entregable{
 		this.company = "Default";
 	}
 	
+	/**
+	 * Constructor de videojuego con todos los parametros
+	 * 
+	 * @param titulo
+	 * @param horasEstimadas
+	 * @param genero
+	 * @param company
+	 */
 	public Videojuego(String titulo, int horasEstimadas, String genero, String company) {
 		
 		this.titulo = titulo;
@@ -87,18 +103,22 @@ public class Videojuego implements Entregable{
 	}
 
 	/**
-	 * @param compañia the compañia to set
+	 * @param company the company to set
 	 */
 	public void setCompany(String company) {
 		this.company = company;
 	}
 
+	/**
+	 * Sobreescribimos el metodo toString
+	 */
 	@Override
 	public String toString() {
 		return "Videojuego [titulo=" + titulo + ", horasEstimadas=" + horasEstimadas + ", entregado=" + entregado
 				+ ", genero=" + genero + ", compañia=" + company + "]";
 	}
 
+	
 	/**
 	 * Metodo que cambia el estado de entregado a cierto
 	 */
@@ -125,13 +145,13 @@ public class Videojuego implements Entregable{
 
 	}
 
+	/**
+	 * Metodo que compara horas estimadas
+	 */
 	public boolean compareTo(Object a) {
         boolean match = false;
         if (this.horasEstimadas == (int) a)
         	match = true;
     	return match;
-    	
-	}
-	
-	
+	}	
 }

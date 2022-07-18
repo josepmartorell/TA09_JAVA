@@ -32,10 +32,10 @@ public class Raices {
 	/**
 	 * Devuelve true si tiene dos soluciones y false si no.
 	 * 
-	 * @return
+	 * @return true or false
 	 */
 	public boolean tieneRaices() {
-		if(getDiscriminante() >= 0) {
+		if(getDiscriminante() > 0) {
 			return true;
 		}else {
 			return false;
@@ -45,20 +45,63 @@ public class Raices {
 	/**
 	 * Devuelve true si tiene una solucion y false si no.
 	 * 
-	 * @return
+	 * @return true or false
 	 */
 	public boolean tieneRaiz() {
-		if(getDiscriminante() >= 0) {
-			return false;
-		}else {
+		if(getDiscriminante() == 0) {
 			return true;
+		}else {
+			return false;
 		}
 	}
+	
+	/**
+	 * Devuelve verdadero o falso si la equacion no tiene raices
+	 * 
+	 * @return true or false
+	 */
+	public boolean noTieneRaiz() {
+		if (this.getDiscriminante() < 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Calcula la equación de segundo grado
+	 */
+	public void calcular() {
+		// Primero calculamos el discriminante
+		double result = this.getDiscriminante();
 		
-	// TODO metodo calcular() mostrara por consola las posibles soluciones que en caso de no existir solucion, mostrarlo tambien.
-		// Utilizar en este metodo el resto de metodos en la medida de lo posible!!
+		// En caso que la equacion no tenga solucion (discriminante negativo)
+		if (this.noTieneRaiz()) {
+			System.out.println("La equacion no tiene raices, por lo tanto no tiene resultado (no existe raiz de un numero negativo");
+		} else if(this.tieneRaiz()) {
+			// En caso de tener una sola raiz (discriminante == 0)
+			result = -b /2*a;
+			System.out.println("La equacion solamente tiene un resultado y es: "+result);
+		} else {
+			// En caso de tener dos raices (discriminante positivo)
+			double r1 = (-b + result / (2.0 * a));
+            double r2 = (-b - result / (2.0 * a));
+            System.out.println("La equacion tiene dos resultados. El primero es " + r1 + " y el segundo es " + r2);
+		}
+	}
 	
-	// TODO metodo obtenerRaices() imprime las 2 posibles soluciones
+	/**
+	 * Metodo que imprime las 2 posibles soluciones
+	 */
+	public void obtenerRaices() {
+		// TODO
+	}
 	
-	// TODO metodo obtenerRaiz() imprime unica raiz, que sera cuando solo tenga una solucion posible
+	/**
+	 * Metodo que imprime unica raiz, que sera cuando solo tenga una solucion posible
+	 */
+	public void obtenerRaiz( ) {
+		// TODO 
+	}
+	
 }

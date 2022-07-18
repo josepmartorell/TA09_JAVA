@@ -88,4 +88,13 @@ public class Libro {
 		this.numPaginas = numPaginas;
 	}
 	
+	/**
+	 * Sobreescribimos el metodo toString
+	 */
+	@Override
+	public String toString() {
+		return "El libro " + this.getTitulo() + " con ISBN " + this.getIsbn() + " creado por el autor "
+				+ this.getAutor() + " tiene " + this.getNumPaginas() + " paginas.";
+	}
+	
 }
