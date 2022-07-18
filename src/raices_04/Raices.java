@@ -1,5 +1,7 @@
 package raices_04;
 
+import javax.swing.JOptionPane;
+
 public class Raices {
 
 	private double a;
@@ -70,26 +72,28 @@ public class Raices {
 	/**
 	 * Calcula la equaci�n de segundo grado
 	 */
-	public void calcular() {	
+	public void calcular(int numPrueba) {	
 		// En caso que la equacion no tenga solucion (discriminante negativo)
 		if (this.noTieneRaiz()) {
-			System.out.println("La equacion no tiene raices, por lo tanto no tiene resultado (no existe raiz de un numero negativo");
+			//System.out.println("La equacion no tiene raices, por lo tanto no tiene resultado (no existe raiz de un numero negativo");
+			JOptionPane.showMessageDialog(null, "La equacion no tiene raices, por lo tanto no tiene resultado (no existe raiz de un numero negativo", "RAICES TEST "+numPrueba, JOptionPane.INFORMATION_MESSAGE);
 		} else if(this.tieneRaiz()) {
-			obtenerRaiz();
+			obtenerRaiz(numPrueba);
 		} else {
-			obtenerRaices();
+			obtenerRaices(numPrueba);
 		}
 	}
 	
 	/**
 	 * Metodo que imprime las 2 posibles soluciones
 	 */
-	public void obtenerRaices() {
+	public void obtenerRaices(int numPrueba) {
 		// En caso de tener dos raices (discriminante positivo)
 		if(this.tieneRaices()) {			
 			double r1 = (-b + Math.pow(this.getDiscriminante(), 0.5) / (2.0 * a));
             double r2 = (-b - Math.pow(this.getDiscriminante(), 0.5) / (2.0 * a));
-            System.out.println("La equacion tiene dos resultados. El primero es " + r1 + " y el segundo es " + r2);
+            //System.out.println("La equacion tiene dos resultados. El primero es " + r1 + " y el segundo es " + r2);
+            JOptionPane.showMessageDialog(null, "La equacion tiene dos resultados.\n El primero es " + r1 + " y el segundo es " + r2, "RAICES TEST "+numPrueba, JOptionPane.INFORMATION_MESSAGE);
 		}
 
 	}
@@ -97,11 +101,12 @@ public class Raices {
 	/**
 	 * Metodo que imprime unica raiz, que sera cuando solo tenga una solucion posible
 	 */
-	public void obtenerRaiz( ) {
+	public void obtenerRaiz(int numPrueba) {
 		if (this.tieneRaiz()) {
 			// En caso de tener una sola raiz (discriminante == 0)
 			double result = -b /2*a;
-			System.out.println("La equacion solamente tiene un resultado y es: "+result);
+			//System.out.println("La equacion solamente tiene un resultado y es: "+result);
+			JOptionPane.showMessageDialog(null, "La equacion solamente tiene un resultado y es:\n "+result, "RAICES TEST "+numPrueba, JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 	

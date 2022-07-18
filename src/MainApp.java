@@ -5,6 +5,7 @@ import electrodomestico_01.Electrodomestico;
 import electrodomestico_01.Lavadora;
 import electrodomestico_01.Television;
 import libro_03.Libro;
+import raices_04.Raices;
 import serie_02.Serie;
 import serie_02.Videojuego;
 
@@ -47,7 +48,7 @@ public class MainApp {
 				pruebasTercerEjercicio();
 				break;
 			case "4":
-				// TODO
+				pruebasCuartoEjercicio();
 				break;
 			case "5":
 				// TODO
@@ -238,6 +239,29 @@ public class MainApp {
 			opt = mensaje[2];
 		};
 		return opt;
+	}
+	
+	/**
+	 * Metodo de prueba del tercer ejercicio
+	 */
+	public static void pruebasCuartoEjercicio() {
+		Raices[] raices = {
+				new Raices(12, 45, 7), 
+				new Raices(72, 13.56F,777),
+				new Raices(-1, 47, 0.4178)
+		};
+		
+		int numPrueba = 1;
+		
+		for (Raices r : raices) {
+			r.calcular(numPrueba);
+			
+			numPrueba++;
+			
+		}
+		
+		JOptionPane.showMessageDialog(null, "¡Prueba finalizada!");
+		
 	}
 	
 }
